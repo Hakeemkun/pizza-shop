@@ -31,7 +31,7 @@ export const useNavbar=()=>{
         render : (
         <div className="navbar">
             <div className="links">
-                <div className="logo" ><Link to="/" >Hakeem.</Link></div>
+                <div className="logo" ><Link to="/pizza-shop" >Hakeem.</Link></div>
                 <form className="search">
                     <i onClick={handleClick} ><MagnifyingGlass size={24} color="white" /></i><input className="searchBar" type="search" placeholder="Search" aria-label="Search" value={searchItem} onChange={(e)=>{handleChange(e.target.value)}} />
                     <div className="responsive-search">
