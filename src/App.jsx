@@ -16,7 +16,7 @@ function App(){
           <Router>
             {render}
             <Routes>
-              <Route path='/' element={<Shop searchResults={searchResult} />}></Route>
+              <Route path='/pizza-shop' element={<Shop searchResults={searchResult} />}></Route>
               <Route path='cart' element={<Cart />}></Route>
             </Routes>
           </Router>
