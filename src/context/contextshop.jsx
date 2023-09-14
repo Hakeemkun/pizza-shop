@@ -13,7 +13,6 @@ const getCart=()=>{
     return cart
 }
 
-
 export const ShopProvider = (props) => {
     const [items,setitems]=useState(getCart());
 

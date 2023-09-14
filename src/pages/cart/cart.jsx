@@ -1,18 +1,24 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { shopContext } from '../../context/contextshop';
 import { products } from '../../products';
 import './cart.css';
+import { motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 export const Cart = () => {
   const {totale}=useContext(shopContext)
   const totaleAmount=totale()
+
   return (
     <div className='cart'>
       <h1 className="Title">Cart items</h1>
       <div className='carts'>
-        {products.map((product) => (
-          <ShoppingCart data={product} />)
+        <AnimatePresence>
+        {products.map((product,index) => (
+          
+          <ShoppingCart data={product} delay={(index+1)*0.2} />)
         )}
+        </AnimatePresence>
       </div>
       
       <div className='totale'>Totale amount : ${totaleAmount}  </div>  
@@ -25,9 +31,14 @@ const ShoppingCart = (props) => {
   const { addToCart, removeFromCart, remove, items,updateAmount } = useContext(shopContext);
   const itemAmount = items[id];
   
+  
+
+
+
+
   return (
     itemAmount>0 &&
-      <div className="container">
+      <motion.div className="container" initial={{opacity:0,x:-70}} animate={{opacity:1,x:0}} transition={{duration:props.delay}}>
         <div className="cartImg">
           <img src={img} alt={title} />
         </div>
@@ -41,7 +52,7 @@ const ShoppingCart = (props) => {
           </div>
         </div>
         <div className="close" onClick={() => remove(id)}>&times;</div>
-      </div>
+      </motion.div>
     )
   
 };

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCart,MagnifyingGlass } from "phosphor-react"
 import './navbar.css'
@@ -26,6 +26,10 @@ export const useNavbar=()=>{
     const handleClick=()=>{
         setToggleSearch(!toggleSearch)
     }
+
+
+
+
     return {
         searchResult,
         render : (
