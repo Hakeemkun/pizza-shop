@@ -16,7 +16,7 @@ export const Cart = () => {
         <AnimatePresence>
         {products.map((product,index) => (
           
-          <ShoppingCart data={product} delay={(index+1)*0.2} />)
+          <ShoppingCart data={product} />)
         )}
         </AnimatePresence>
       </div>
@@ -38,7 +38,7 @@ const ShoppingCart = (props) => {
 
   return (
     itemAmount>0 &&
-      <motion.div className="container" initial={{opacity:0,x:-70}} animate={{opacity:1,x:0}} transition={{duration:props.delay}}>
+      <motion.div className="container" >
         <div className="cartImg">
           <img src={img} alt={title} />
         </div>
